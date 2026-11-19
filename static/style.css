@@ -1,128 +1,171 @@
-    border-radius: 22px;
-  }
 
-  .card-header,
-  .result-header,
-  .workflow-header {
-    flex-direction: column;
-  }
+/* ==========================================
+   VOYAGEAI - LIGHT COLOR THEME
+   ========================================== */
 
-  .input-area {
-    grid-template-columns: 1fr;
-  }
-
-  #sendBtn {
-    min-height: 56px;
-  }
-
-  .hero-section p {
-    font-size: 1rem;
-  }
-
-  .result-actions,
-  .approval-actions {
-    width: 100%;
-  }
-
-  .copy-btn,
-  .download-btn,
-  .approve-btn,
-  .revise-btn {
-    flex: 1;
-  }
-
-  .pdf-content {
-    padding: 20px;
-  }
-
-  .approval-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* =====================================================
-   VOYAGEAI — LIGHT COLOR THEME
-   Color-only overrides. Layout and behavior unchanged.
-   ===================================================== */
 body {
   background: #f6f9ff;
   color: #18253b;
 }
+
 .page-bg {
   background:
-    radial-gradient(circle at top left, rgba(186, 220, 255, .60), transparent 36%),
-    radial-gradient(circle at top right, rgba(222, 205, 255, .52), transparent 32%),
-    linear-gradient(135deg, #f8fbff 0%, #eef5ff 48%, #f8f4ff 100%);
+    radial-gradient(circle at top left,
+      rgba(186, 220, 255, 0.60), transparent 36%),
+    radial-gradient(circle at top right,
+      rgba(222, 205, 255, 0.52), transparent 32%),
+    linear-gradient(
+      135deg,
+      #f8fbff 0%,
+      #eef5ff 48%,
+      #f8f4ff 100%
+    );
 }
-.gradient-circle { opacity: .18; }
-.circle-1 { background: #93c5fd; }
-.circle-2 { background: #c4b5fd; }
-.circle-3 { background: #99f6e4; }
+
+.gradient-circle {
+  opacity: 0.18;
+}
+
+.circle-1 {
+  background: #93c5fd;
+}
+
+.circle-2 {
+  background: #c4b5fd;
+}
+
+.circle-3 {
+  background: #99f6e4;
+}
+
+/* Main cards */
+
 .planner-card,
 .workflow-section,
 .result-section,
 .approval-section {
-  background: rgba(255, 255, 255, .88);
+  background: rgba(255, 255, 255, 0.88);
   border-color: #e0e8f4;
-  box-shadow: 0 24px 80px rgba(50, 73, 117, .10);
+  box-shadow: 0 24px 80px rgba(50, 73, 117, 0.10);
 }
+
+/* Headings and descriptions */
+
 .badge {
-  background: rgba(255, 255, 255, .84);
+  background: rgba(255, 255, 255, 0.84);
   color: #6354b6;
   border-color: #e2dcfb;
 }
+
 .hero-section h1 {
-  background: linear-gradient(135deg, #172b4d, #326ac0, #8c58c0);
+  background: linear-gradient(
+    135deg,
+    #172b4d,
+    #326ac0,
+    #8c58c0
+  );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .hero-section p,
 .card-header p,
 .result-header p,
 .approval-content p,
-.supervisor-reasoning { color: #52637b; }
+.supervisor-reasoning {
+  color: #52637b;
+}
+
+/* Travel input */
+
 textarea {
   background: #f9fbff;
   color: #18253b;
   border-color: #d6e1ef;
 }
-textarea::placeholder { color: #7d8ca4; }
+
+textarea::placeholder {
+  color: #7d8ca4;
+}
+
+/* Quick prompts */
+
 .quick-prompts button {
   background: #f1f5ff;
   border-color: #dce6f7;
   color: #294b7e;
 }
+
 .quick-prompts button:hover {
   background: #e3eeff;
   border-color: #aac7f5;
 }
+
+/* Status and guardrails */
+
 .status-pill,
 .guardrail-badge {
   background: #ecfaf1;
   color: #187342;
   border-color: #c7ead4;
 }
+
 .guardrail-badge.blocked {
   background: #fff0f0;
   color: #a62929;
   border-color: #f4c2c2;
 }
-.eyebrow { color: #3e6ca9; }
+
+.eyebrow {
+  color: #3e6ca9;
+}
+
 .agent-chip {
   background: #edf3ff;
   color: #2b5393;
   border-color: #d3e1fa;
 }
+
+/* Copy button */
+
 .copy-btn {
   background: #f3f6ff;
   color: #223a61;
   border-color: #dce6f4;
 }
-.copy-btn:hover { background: #e9f0ff; }
+
+.copy-btn:hover {
+  background: #e9f0ff;
+}
+
+/* Human approval */
+
 .approval-section {
-  background: linear-gradient(135deg, #fffaf1, #ffffff);
+  background: linear-gradient(
+    135deg,
+    #fffaf1,
+    #ffffff
+  );
   border-color: #f1dfb8;
 }
+
 .approval-icon {
+  background: #fff1d9;
+  border-color: #f3dfb5;
+}
+
+/* Error messages */
+
+.error-box {
+  background: #fff0f0;
+  color: #a52b2b;
+  border-color: #f4cbcb;
+}
+
+/* Footer */
+
+footer {
+  color: #6f809b;
+}
