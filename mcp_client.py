@@ -47,8 +47,10 @@ WEATHER_ENV["OPENWEATHER_API_KEY"] = (
 # ==========================================
 
 llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
-    api_key=GROQ_API_KEY
+    model="qwen/qwen3.8-27b",
+    api_key=GROQ_API_KEY,
+    temperature=0,
+    max_tokens=700
 )
 
 
