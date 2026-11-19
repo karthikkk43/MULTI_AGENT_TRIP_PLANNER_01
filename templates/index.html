@@ -1,12 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TripMate AI</title>
+
+  <title>VoyageAI | Intelligent Travel Planner</title>
+
   <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
+
+  <!-- Background Effects -->
   <div class="page-bg">
     <div class="gradient-circle circle-1"></div>
     <div class="gradient-circle circle-2"></div>
@@ -14,123 +20,325 @@
   </div>
 
   <main class="app-container">
+
+    <!-- ========================= -->
+    <!-- Hero Section -->
+    <!-- ========================= -->
+
     <section class="hero-section">
+
       <div class="badge">
-        ✈️ TripMate AI — LangGraph, MCP, Supervisor, Guardrails & HITL
+        ✈️ VoyageAI — Your Intelligent Travel Companion
       </div>
-      <h1>Plan Your Perfect Trip with AI</h1>
+
+      <h1>Explore the World, Powered by AI</h1>
+
       <p>
-        Search flights, discover hotels, check weather, assess your budget,
-        and review the AI-generated draft before the final itinerary is created.
+        Turn your travel dreams into unforgettable journeys.
+        Discover flights, hotels, weather forecasts, and
+        personalized itineraries with the power of intelligent
+        AI travel agents — all in one place.
       </p>
+
     </section>
+
+
+    <!-- ========================= -->
+    <!-- Travel Planner Input -->
+    <!-- ========================= -->
 
     <section class="planner-card">
+
       <div class="card-header">
+
         <div>
-          <h2>Where do you want to go?</h2>
+          <h2>Where Will Your Next Adventure Take You?</h2>
+
           <p>
-            Example: Plan a complete 7 days Japan trip from Bangladesh under 2 lakhs.
+            Tell VoyageAI where you want to go, your travel duration,
+            and your budget. We'll help plan the journey.
           </p>
         </div>
+
         <div class="status-pill">
           <span class="status-dot"></span>
-          Online
+          Ready to Plan
         </div>
+
       </div>
+
 
       <div class="input-area">
+
         <textarea
           id="userInput"
-          placeholder="Plan a complete 7 days Japan trip including flights, hotels and sightseeing under 2 lakhs..."
+          placeholder="Example: Plan a 7-day trip to Japan from Dallas, including flights, hotels, sightseeing, and a budget of $2,000..."
+          aria-label="Describe your travel plans"
         ></textarea>
+
         <button id="sendBtn" onclick="sendMessage()">
-          <span id="btnText">Generate Draft</span>
-          <span id="btnLoader" class="loader hidden"></span>
+
+          <span id="btnText">
+            ✨ Generate My Travel Plan
+          </span>
+
+          <span
+            id="btnLoader"
+            class="loader hidden"
+          ></span>
+
         </button>
+
       </div>
+
+
+      <!-- Quick Travel Suggestions -->
 
       <div class="quick-prompts">
-        <button onclick="setPrompt('Plan a complete 7 days Japan trip from Bangladesh including flights, hotels and sightseeing under 2 lakhs.')">
-          Japan Trip
+
+        <button
+          onclick="setPrompt('Plan a complete 7-day Japan trip from Dallas including flights, hotels, sightseeing, and a budget of $2000.')"
+        >
+          🌸 Explore Japan
         </button>
-        <button onclick="setPrompt('Plan a 5 days Dubai trip from Dhaka with flights, hotels and sightseeing.')">
-          Dubai Trip
+
+        <button
+          onclick="setPrompt('Plan a 5-day Dubai trip from Dallas including flights, hotels, and sightseeing.')"
+        >
+          🏙️ Discover Dubai
         </button>
-        <button onclick="setPrompt('Plan a 7 days Thailand trip from Bangladesh with budget hotels and sightseeing.')">
-          Thailand Trip
+
+        <button
+          onclick="setPrompt('Plan a 7-day Thailand vacation from Dallas with budget-friendly hotels and sightseeing.')"
+        >
+          🌴 Visit Thailand
         </button>
-        <button onclick="setPrompt('Give me all country flight info.')">
-          Global Flights
+
+        <button
+          onclick="setPrompt('Plan a one-day road trip from Denton to Dallas, including attractions, food, and weather.')"
+        >
+          🚗 Weekend Getaway
         </button>
+
       </div>
+
     </section>
 
-    <section id="workflowSection" class="workflow-section hidden">
+
+    <!-- ========================= -->
+    <!-- Supervisor Workflow -->
+    <!-- ========================= -->
+
+    <section
+      id="workflowSection"
+      class="workflow-section hidden"
+    >
+
       <div class="workflow-header">
+
         <div>
-          <span class="eyebrow">Supervisor Agent</span>
-          <h2>Execution Plan</h2>
+
+          <span class="eyebrow">
+            Intelligent Agent Coordination
+          </span>
+
+          <h2>Meet Your AI Travel Team</h2>
+
         </div>
-        <span id="guardrailBadge" class="guardrail-badge">Guardrail passed</span>
+
+        <span
+          id="guardrailBadge"
+          class="guardrail-badge"
+        >
+          Guardrail Passed
+        </span>
+
       </div>
-      <p id="supervisorReasoning" class="supervisor-reasoning"></p>
-      <div id="agentChips" class="agent-chips"></div>
+
+      <p
+        id="supervisorReasoning"
+        class="supervisor-reasoning"
+      ></p>
+
+      <div
+        id="agentChips"
+        class="agent-chips"
+      ></div>
+
     </section>
 
-    <section id="resultSection" class="result-section hidden">
+
+    <!-- ========================= -->
+    <!-- Travel Plan Results -->
+    <!-- ========================= -->
+
+    <section
+      id="resultSection"
+      class="result-section hidden"
+    >
+
       <div class="result-header">
+
         <div>
-          <h2 id="resultTitle">Your AI Travel Plan</h2>
-          <p id="threadInfo">Thread ID: -</p>
+
+          <span class="eyebrow">
+            Your Personalized Journey
+          </span>
+
+          <h2 id="resultTitle">
+            Your VoyageAI Travel Itinerary
+          </h2>
+
+          <p id="threadInfo">
+            Thread ID: -
+          </p>
+
         </div>
+
+
         <div class="result-actions">
-          <button class="copy-btn" onclick="copyResult()">Copy</button>
-          <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
+
+          <button
+            class="copy-btn"
+            onclick="copyResult()"
+          >
+            📋 Copy Plan
+          </button>
+
+          <button
+            class="download-btn"
+            onclick="downloadPDF()"
+          >
+            📥 Download PDF
+          </button>
+
         </div>
+
       </div>
 
-      <div id="pdfContent" class="pdf-content">
-        <h1 class="pdf-title">AI Travel Plan</h1>
-        <div id="resultBox" class="result-box"></div>
+
+      <div
+        id="pdfContent"
+        class="pdf-content"
+      >
+
+        <h1 class="pdf-title">
+          VoyageAI Travel Itinerary
+        </h1>
+
+        <div
+          id="resultBox"
+          class="result-box"
+        ></div>
+
       </div>
+
     </section>
 
-    <section id="approvalSection" class="approval-section hidden">
-      <div class="approval-icon">👤</div>
+
+    <!-- ========================= -->
+    <!-- Human-in-the-Loop Approval -->
+    <!-- ========================= -->
+
+    <section
+      id="approvalSection"
+      class="approval-section hidden"
+    >
+
+      <div class="approval-icon">
+        👤
+      </div>
+
       <div class="approval-content">
-        <span class="eyebrow">Human-in-the-Loop</span>
-        <h2>Review the draft itinerary</h2>
+
+        <span class="eyebrow">
+          Human-in-the-Loop Review
+        </span>
+
+        <h2>
+          Your Journey, Your Decision
+        </h2>
+
         <p id="approvalRequest">
-          Approve the draft or provide feedback before the final plan is generated.
+          Review your AI-generated itinerary.
+          Approve the draft or request changes
+          before generating your final travel plan.
         </p>
+
 
         <textarea
           id="approvalFeedback"
           class="feedback-input"
-          placeholder="Add revision feedback, for example: reduce the hotel cost and add one free day..."
+          placeholder="Want to change something? Example: Reduce hotel costs, add more sightseeing, or include vegetarian restaurants..."
+          aria-label="Travel plan revision feedback"
         ></textarea>
 
+
         <div class="approval-actions">
-          <button id="approveBtn" class="approve-btn" onclick="submitApproval(true)">
-            Approve & Generate Final
+
+          <button
+            id="approveBtn"
+            class="approve-btn"
+            onclick="submitApproval(true)"
+          >
+            ✓ Approve & Finalize
           </button>
-          <button id="reviseBtn" class="revise-btn" onclick="submitApproval(false)">
-            Revise Using Feedback
+
+          <button
+            id="reviseBtn"
+            class="revise-btn"
+            onclick="submitApproval(false)"
+          >
+            ✎ Request Changes
           </button>
+
         </div>
+
       </div>
+
     </section>
 
-    <section id="errorBox" class="error-box hidden"></section>
+
+    <!-- ========================= -->
+    <!-- Error Messages -->
+    <!-- ========================= -->
+
+    <section
+      id="errorBox"
+      class="error-box hidden"
+      role="alert"
+    ></section>
+
   </main>
 
+
+  <!-- ========================= -->
+  <!-- Footer -->
+  <!-- ========================= -->
+
   <footer>
-    Built with FastAPI, LangGraph, Groq, PostgreSQL, Tavily, AviationStack and MCP
+
+    <p>
+      ✈️ VoyageAI — Explore Beyond Boundaries
+    </p>
+
+    <p>
+      Intelligent Travel Planning Powered by
+      LangGraph, MCP, Groq & FastAPI
+    </p>
+
   </footer>
 
+
+  <!-- ========================= -->
+  <!-- JavaScript Libraries -->
+  <!-- ========================= -->
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <script src="/static/script.js"></script>
+
 </body>
 </html>
